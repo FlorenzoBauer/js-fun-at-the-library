@@ -33,16 +33,29 @@ if (!same) {
 }
 return reviews;
 }
-function calculatePageCount() {
+function calculatePageCount(bookTitle, bookPagesCount) {
+var bookTitle = bookTitle;
+var bookPagesCount = bookTitle.length * 20;
+return bookPagesCount
+}
+function writeBook(bookTitle, bookCharacter, genre, book){
+var book = {
+  title: bookTitle,
+  mainCharacter: bookCharacter,
+  genre: genre,
+  pageCount: calculatePageCount(bookTitle),
+} 
+return book
 
 }
-
-
+function editBook(book) {
+book.pageCount = book.pageCount * 0.75;
+}
 module.exports = {
   createTitle,
    buildMainCharacter,
    saveReview,
    calculatePageCount,
-  // writeBook,
-  // editBook
+   writeBook,
+   editBook,
 }
