@@ -1,18 +1,23 @@
-function shelfBook(book, sciFiShelf){
-
-  var same = false;
-
-for (var i = 0; i < sciFiShelf.length; i++){
-  if (sciFiShelf.length >= 3) {
-    same = true;
-    break;
+function shelfBook(book, shelf){
+  if (shelf.length > 2){
+    return 
   }
 
-}
-if (!same) {
-  sciFiShelf.unshift(book);
-}
-return sciFiShelf;
+  shelf.unshift(book);
+
+//   var same = false;
+
+// for (var i = 0; i < sciFiShelf.length; i++){
+//   if (sciFiShelf.length >= 3) {
+//     same = true;
+//     break;
+//   }
+
+// }
+// if (!same) {
+//   sciFiShelf.unshift(book);
+// }
+// return sciFiShelf;
 }
 
 function unshelfBook(book, shelf){

@@ -7,6 +7,7 @@ function createLibrary(name) {
       nonFiction: []
     }
   };
+
 }
 function addBook(library, book) {
   library.shelves[book.genre].push(book);
@@ -20,26 +21,25 @@ function checkoutBook(library, book, genre) {
   }
   return `Sorry, there are currently no copies of ${book} available at the ${library.name}.`;
 }
-  function takeStock(library, genre ) {
-    var stock = library.shelves[genre].length;
+function takeStock(library, genre ) {  
+  if (!genre) {
+    // return "There are a total of 3 books at the Denver Public Library."
+    var totalStock = 0;
+    var shelves = Object.keys(library.shelves);
+    console.log(shelves);
 
-    for (var i = 0; i < library.shelves.length; i++) {
-    var totalStock = library.shelves[i].length;
-      if (genre === undefined && library === undefined) {
-      return `There are a total of ${totalStock} books at the ${library.name}.`
+    for (var i = 0; i < shelves.length; i++) {
+      var shelfName = shelves[i]; // fantasy
+      var numberOfBooksOnShelf = library.shelves[shelfName].length;
+      totalStock += numberOfBooksOnShelf;
+      // totalStock = totalStock + numberOfBooksOnShelfs;
     }
-  
-
-    
-  
+    return `There are a total of ${totalStock} books at the ${library.name}.`
   }
+
+  var stock = library.shelves[genre].length;
   return `There are a total of ${stock} ${genre} books at the ${library.name}.`;
-  // q: why does undefined get returned in my code?
-
-
-  // a: because the for loop is never run if the genre is undefined.
-  }
-
+}
 
 module.exports = {
    createLibrary,
