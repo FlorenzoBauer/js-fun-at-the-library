@@ -25,7 +25,7 @@ function unshelfBook(book, shelf){
   for (var i = 0; i < shelf.length; i++){
   var bname = book;
 
-
+  
     if (bname === shelf[i].title) {
    shelf.splice(i, 1);
     } 
